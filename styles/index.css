@@ -1,0 +1,52 @@
+@tailwind base;
+
+main {
+  min-height: calc(100vh - 125px - 98px);
+}
+
+@tailwind components;
+@tailwind utilities;
+
+#__next {
+  min-height: 100%;
+}
+
+.card-header {
+  @apply text-left text-lg font-semibold leading-6 text-[#0A316A];
+}
+
+.card-sub-header {
+  @apply mt-1 max-w-2xl text-sm text-gray-500;
+}
+
+table {
+  @apply min-w-full divide-y divide-gray-200 border-t border-gray-200;
+}
+
+thead {
+  @apply bg-gray-50;
+}
+
+tbody {
+  @apply divide-y divide-gray-200 bg-white;
+}
+
+thead tr th {
+  @apply whitespace-nowrap text-sm font-semibold text-gray-900;
+}
+
+thead tr th {
+  @apply text-left;
+}
+
+thead tr th:last-of-type {
+  @apply text-right;
+}
+
+tr td {
+  @apply whitespace-nowrap;
+}
+
+tbody tr:nth-child(2n) {
+  @apply bg-gray-50;
+}
