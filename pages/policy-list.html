@@ -248,7 +248,8 @@
                     <td class="px-3 py-4">123</td>
                     <td
                       class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6 lg:pr-8">
-                      <a class="cursor-pointer text-primary-500">View</a></td>
+                      <a class="cursor-pointer text-primary-500" id="myButton">View</a>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -268,6 +269,42 @@
       </div>
     </footer>
   </div>
+
+  <div class="hidden relative z-10" id="modalContainer">
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+    <div class="fixed inset-0 z-10 overflow-y-auto">
+      <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0" id="myModal">
+        <div
+          class="relative transform overflow-hidden rounded-lg bg-white px-4 pt-5 pb-4 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-2xl sm:p-6"
+          id="headlessui-dialog-panel-:rl:">
+          <div>
+            <div>
+              <h1 class="text-2xl font-bold tracking-tight text-gray-900">PolicyManagerName</h1>
+              <dt class="mt-2 text-sm text-gray-500 sm:flex sm:justify-between">UpdatedDate</dt>
+            </div>
+            <dl class="grid grid-cols-2 gap-x-6 py-5 text-sm">
+              <div>
+                <dt class="font-medium text-gray-900">Policy version</dt>
+                <dd class="mt-2 text-gray-700">PolicyManagerContentDate</dd>
+              </div>
+              <div>
+                <dt class="font-medium text-gray-900">Response</dt>
+                <dd class="mt-2 text-gray-700"><span
+                    class="inline-flex items-center rounded px-2 py-0.5 text-xs font-semibold bg-blue-100 text-blue-800">Response</span>
+                </dd>
+              </div>
+            </dl>
+            <div class="mt-4">PolicyContent</div>
+          </div>
+          <div class="mt-5 sm:mt-6"><button id="closeButton" type="button"
+              class="inline-flex w-full justify-center rounded-md border border-transparent bg-primary-500 px-4 py-2 text-base font-medium text-white shadow-sm sm:text-sm"
+              tabindex="0">Close</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
 </body>
 
 </html>
