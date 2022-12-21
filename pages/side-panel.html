@@ -1,0 +1,76 @@
+<!doctype html>
+<html class="h-full scroll-smooth bg-bg antialiased [font-feature-settings:'ss01']">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/tailwind.css" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend:wght@400;500;600;700;800;900&display=swap" />
+</head>
+
+<body class="flex bg-white h-full flex-col">
+  <div class="flex-col space-y-8 p-4 my-6">
+    <div class="flex justify-between items-center">
+      <div class="w-[36px] h-[36px] bg-gray-600 rounded-full"></div>
+      <div class="flex space-x-4 items-center">
+        <div class="w-[36px] h-[36px] bg-gray-600 rounded-full"></div>
+        <p>Print course report</p>
+      </div>
+    </div>
+    <div class="bg-gray-600 h-[1px] w-full"></div>
+    <div class="py-1 flex items-center justify-between">
+      <div class="flex space-x-4 items-center">
+        <div class="w-[36px] h-[36px] bg-gray-600 rounded-full"></div>
+        <div class="text-xl font-semibold">Discover! Social Studies Live</div>
+      </div>
+      <div class="flex space-x-4 items-center">
+        <div class="text-sm font-semibold">Course Progress</div>
+        <div class="w-[100px] h-[12px] flex relative bg-gray-600 rounded-md">
+          <div class="w-1/2 absolute h-[12px] bg-primary-500 rounded-md"></div>
+        </div>
+        <div class="text-sm font-semibold">40%</div>
+      </div>
+    </div>
+    <div class="lg:pl-8 sm:pl-6 rounded bg-primary-700 text-white flex py-1 space-x-4 items-center">
+      <div class="w-[24px] h-[24px] bg-gray-600 rounded-full"></div>
+      <div class="text-lg">Grade Summary</div>
+      <div class="w-[24px] h-[24px] bg-gray-600 rounded-full"></div>
+
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col" class="py-3.5 pl-4 pr-2 sm:pr-3 sm:pl-6 lg:pl-8">Lesson</th>
+          <th scope="col" class="hidden px-2 py-3.5 sm:px-3 lg:table-cell">Activity</th>
+          <th scope="col" class="hidden px-2 py-3.5 sm:px-3 lg:table-cell">Category</th>
+          <th scope="col" class="hidden px-2 py-3.5 sm:px-3 lg:table-cell text-center">Status/Grade</th>
+          <th scope="col" class="px-2 py-3.5 sm:px-3 lg:table-cell">Date Completed</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td
+            class="w-full max-w-0 whitespace-nowrap px-2 py-4 pl-4 text-sm font-medium text-gray-900 sm:px-3 sm:pl-6 lg:w-auto lg:max-w-none lg:pl-8">
+            Chapter 1
+          </td>
+          <td class="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 lg:table-cell">
+            <a href="#" class="text-primary-500 underline">Read and Do</a>
+          </td>
+          <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Learning Activity</td>
+          <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 flex justify-center text-center">
+            <div class="bg-green-500 text-white rounded-md px-3">
+              85%
+            </div>
+          </td>
+          <td
+            class="whitespace-nowrap py-4 pl-2 pr-4 text-right text-sm text-gray-500 sm:pl-3 sm:pr-6 lg:table-cell lg:pr-8">
+            Apr 11 2022
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+
+</html>
