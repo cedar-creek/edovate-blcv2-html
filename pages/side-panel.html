@@ -7,69 +7,133 @@
   <link rel="stylesheet" href="../styles/tailwind.css" />
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lexend:wght@400;500;600;700;800;900&display=swap" />
+  <script defer src="https://unpkg.com/@alpinejs/ui@3.10.5-beta.8/dist/cdn.min.js"></script>
+  <script defer src="https://unpkg.com/@alpinejs/collapse@3.10.5/dist/cdn.min.js"></script>
+  <script defer src="https://unpkg.com/@alpinejs/focus@3.10.5/dist/cdn.min.js"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.10.5/dist/cdn.min.js"></script>
 </head>
 
-<body class="flex bg-white h-full flex-col">
-  <div class="flex-col space-y-8 p-4 my-6">
-    <div class="flex justify-between items-center">
-      <div class="w-[36px] h-[36px] bg-gray-600 rounded-full"></div>
-      <div class="flex space-x-4 items-center">
-        <div class="w-[36px] h-[36px] bg-gray-600 rounded-full"></div>
-        <p>Print course report</p>
-      </div>
-    </div>
-    <div class="bg-gray-600 h-[1px] w-full"></div>
-    <div class="py-1 flex items-center justify-between">
-      <div class="flex space-x-4 items-center">
-        <div class="w-[36px] h-[36px] bg-gray-600 rounded-full"></div>
-        <div class="text-xl font-semibold">Discover! Social Studies Live</div>
-      </div>
-      <div class="flex space-x-4 items-center">
-        <div class="text-sm font-semibold">Course Progress</div>
-        <div class="w-[100px] h-[12px] flex relative bg-gray-600 rounded-md">
-          <div class="w-1/2 absolute h-[12px] bg-primary-500 rounded-md"></div>
-        </div>
-        <div class="text-sm font-semibold">40%</div>
-      </div>
-    </div>
-    <div class="lg:pl-8 sm:pl-6 rounded bg-primary-700 text-white flex py-1 space-x-4 items-center">
-      <div class="w-[24px] h-[24px] bg-gray-600 rounded-full"></div>
-      <div class="text-lg">Grade Summary</div>
-      <div class="w-[24px] h-[24px] bg-gray-600 rounded-full"></div>
+<body x-data="{ open: false }" class="flex justify-center h-full">
+  <!-- Trigger -->
+  <span x-on:click="open = true">
+    <button type="button" class="bg-white px-5 py-2.5 rounded-md shadow">
+      Open slideover
+    </button>
+  </span>
 
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th scope="col" class="py-3.5 pl-4 pr-2 sm:pr-3 sm:pl-6 lg:pl-8">Lesson</th>
-          <th scope="col" class="hidden px-2 py-3.5 sm:px-3 lg:table-cell">Activity</th>
-          <th scope="col" class="hidden px-2 py-3.5 sm:px-3 lg:table-cell">Category</th>
-          <th scope="col" class="hidden px-2 py-3.5 sm:px-3 lg:table-cell text-center">Status/Grade</th>
-          <th scope="col" class="px-2 py-3.5 sm:px-3 lg:table-cell">Date Completed</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td
-            class="w-full max-w-0 whitespace-nowrap px-2 py-4 pl-4 text-sm font-medium text-gray-900 sm:px-3 sm:pl-6 lg:w-auto lg:max-w-none lg:pl-8">
-            Chapter 1
-          </td>
-          <td class="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 lg:table-cell">
-            <a href="#" class="text-primary-500 underline">Read and Do</a>
-          </td>
-          <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Learning Activity</td>
-          <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 flex justify-center text-center">
-            <div class="bg-green-500 text-white rounded-md px-3">
-              85%
+  <!-- Slideover -->
+  <div x-dialog x-model="open" style="display: none" class="fixed inset-0 overflow-hidden z-10">
+    <!-- Overlay -->
+    <div x-dialog:overlay x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
+
+    <!-- Panel -->
+    <div class="flex bg-white h-full flex-col fixed inset-y-0 right-0 max-w-4xl w-full">
+      <div x-dialog:panel x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
+        x-transition:leave="transition ease-in duration-300" x-transition:leave-start="translate-x-0"
+        x-transition:leave-end="translate-x-full" class="h-full w-full">
+        <div class="flex-col space-y-8 p-4 my-6">
+          <div class="flex justify-between items-center">
+            <div class="w-[36px] h-[36px] bg-gray-600 rounded-full"></div>
+            <div class="flex space-x-4 items-center">
+              <div class="w-[36px] h-[36px] bg-gray-600 rounded-full"></div>
+              <p class="uppercase tracking-tight font-semibold text-gray-500 text-sm">Print course report</p>
             </div>
-          </td>
-          <td
-            class="whitespace-nowrap py-4 pl-2 pr-4 text-right text-sm text-gray-500 sm:pl-3 sm:pr-6 lg:table-cell lg:pr-8">
-            Apr 11 2022
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </div>
+          <div class="bg-gray-600 h-[1px] w-full"></div>
+          <div class="py-1 flex items-center justify-between">
+            <div class="flex space-x-4 items-center">
+              <div class="w-[36px] h-[36px] bg-gray-600 rounded-full"></div>
+              <div class="text-xl font-semibold">Discover! Social Studies Live</div>
+            </div>
+            <div class="flex space-x-4 items-center">
+              <div class="text-sm font-semibold">Course Progress</div>
+              <div class="w-[100px] h-[12px] flex relative bg-gray-600 rounded-md">
+                <div class="w-1/2 absolute h-[12px] bg-primary-500 rounded-md"></div>
+              </div>
+              <div class="text-sm font-semibold">40%</div>
+            </div>
+          </div>
+
+          <div x-data x-disclosure>
+            <button x-disclosure:button
+              class="lg:pl-8 sm:pl-6 rounded bg-primary-700 text-white flex py-1 space-x-4 items-center w-full">
+              <div class="w-[24px] h-[24px] bg-gray-600 rounded-full"></div>
+              <div class="text-lg">Grade Summary</div>
+              <div class="w-[24px] h-[24px] bg-gray-600 rounded-full"></div>
+            </button>
+
+            <div x-disclosure:panel x-collapse>
+              <div class="w-2/3 mx-auto">
+                <table>
+                  <thead>
+                    <tr>
+                      <th scope="col" class="py-3.5 pl-4 pr-2 sm:pr-3 sm:pl-6 lg:pl-8">Category</th>
+                      <th scope="col" class="hidden px-2 py-3.5 sm:px-3 lg:table-cell text-center">Weight</th>
+                      <th scope="col" class="hidden px-2 py-3.5 sm:px-3 lg:table-cell text-center">Mean</th>
+                      <th scope="col" class="hidden px-2 py-3.5 sm:px-3 lg:table-cell text-center">Count</th>
+                      <th scope="col" class="pr-4 lg:pr-8 sm:pr-6 py-3.5 sm:px-3 lg:table-cell">Count</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td
+                        class="w-full max-w-0 whitespace-nowrap px-2 py-4 pl-4 text-sm font-medium text-gray-900 sm:px-3 sm:pl-6 lg:w-auto lg:max-w-none lg:pl-8">
+                        Lesson Quiz
+                      </td>
+                      <td class="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 lg:table-cell text-center">
+                        70%
+                      </td>
+                      <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-center">80.06</td>
+                      <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 flex justify-center text-center">
+                        138 of 274
+                      </td>
+                      <td
+                        class="whitespace-nowrap py-4 pl-2 text-right text-sm text-gray-500 sm:pl-3 pr-4 lg:pr-8 sm:pr-6 lg:table-cell">
+                        Apr 11 2022
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <table>
+            <thead>
+              <tr>
+                <th scope="col" class="py-3.5 pl-4 pr-2 sm:pr-3 sm:pl-6 lg:pl-8">Lesson</th>
+                <th scope="col" class="hidden px-2 py-3.5 sm:px-3 lg:table-cell">Activity</th>
+                <th scope="col" class="hidden px-2 py-3.5 sm:px-3 lg:table-cell">Category</th>
+                <th scope="col" class="hidden px-2 py-3.5 sm:px-3 lg:table-cell text-center">Status/Grade</th>
+                <th scope="col" class="pr-4 lg:pr-8 sm:pr-6 py-3.5 sm:pl-3 lg:table-cell">Date Completed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td
+                  class="w-full max-w-0 whitespace-nowrap px-2 py-4 pl-4 text-sm font-medium text-gray-900 sm:px-3 sm:pl-6 lg:w-auto lg:max-w-none lg:pl-8">
+                  Chapter 1
+                </td>
+                <td class="hidden whitespace-nowrap px-3 py-4 text-sm text-gray-500 lg:table-cell">
+                  <a href="#" class="text-primary-500 underline">Read and Do</a>
+                </td>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">Learning Activity</td>
+                <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 flex justify-center text-center">
+                  <div class="bg-green-500 text-white rounded-md px-3">
+                    85%
+                  </div>
+                </td>
+                <td
+                  class="whitespace-nowrap py-4 pl-2 pr-4 text-right text-sm text-gray-500 sm:pl-3 sm:pr-6 lg:table-cell lg:pr-8">
+                  Apr 11 2022
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 
