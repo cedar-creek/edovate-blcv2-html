@@ -27,23 +27,35 @@
     <div x-dialog:overlay x-transition.opacity class="fixed inset-0 bg-black bg-opacity-50"></div>
 
     <!-- Panel -->
-    <div class="flex bg-white h-full flex-col fixed inset-y-0 right-0 max-w-4xl w-full">
+    <div class="fixed inset-y-0 right-0 max-w-4xl w-full">
       <div x-dialog:panel x-transition:enter="transition ease-out duration-300"
         x-transition:enter-start="translate-x-full" x-transition:enter-end="translate-x-0"
         x-transition:leave="transition ease-in duration-300" x-transition:leave-start="translate-x-0"
         x-transition:leave-end="translate-x-full" class="h-full w-full">
-        <div class="flex-col space-y-8 p-4 my-6">
+        <div class="flex flex-col bg-white shadow-lg overflow-y-auto space-y-8 p-4 py-8 h-full">
           <div class="flex justify-between items-center">
-            <div class="w-[36px] h-[36px] bg-gray-600 rounded-full"></div>
+            <button type="button" @click="$dialog.close()">
+              <svg xmlns="http://www.w3.org/2000/svg" width="19.276" height="20.699" viewBox="0 0 19.276 20.699">
+                <path id="Vector"
+                  d="M0,17.74A1.083,1.083,0,0,1,.426,16.9a1.641,1.641,0,0,1,1.029-.346H18.917a1.641,1.641,0,0,1,1.029.346,1.034,1.034,0,0,1,0,1.673,1.641,1.641,0,0,1-1.029.346H1.455a1.641,1.641,0,0,1-1.029-.346A1.083,1.083,0,0,1,0,17.74ZM4.792,5.567a1.083,1.083,0,0,1-.426-.836,1.083,1.083,0,0,1,.426-.836L9.157.346a1.7,1.7,0,0,1,2.058,0L15.58,3.894a1.077,1.077,0,0,1,.408.832,1.085,1.085,0,0,1-.426.826,1.7,1.7,0,0,1-2.04.014L11.641,4.037v8.972a1.083,1.083,0,0,1-.426.836,1.7,1.7,0,0,1-2.058,0,1.083,1.083,0,0,1-.426-.836V4.037L6.849,5.567a1.7,1.7,0,0,1-2.058,0Z"
+                  transform="matrix(0.017, 1, -1, 0.017, 18.92, 0)" fill="#232533" />
+              </svg>
+            </button>
             <div class="flex space-x-4 items-center">
-              <div class="w-[36px] h-[36px] bg-gray-600 rounded-full"></div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                <g id="printer" transform="translate(1 1)">
+                  <path id="Vector"
+                    d="M14,14h2a2,2,0,0,0,2-2V8a2,2,0,0,0-2-2H2A2,2,0,0,0,0,8v4a2,2,0,0,0,2,2H4m2,4h6a2,2,0,0,0,2-2V12a2,2,0,0,0-2-2H6a2,2,0,0,0-2,2v4a2,2,0,0,0,2,2ZM14,6V2a2,2,0,0,0-2-2H6A2,2,0,0,0,4,2V6Z"
+                    fill="none" stroke="#111928" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </g>
+              </svg>
               <p class="uppercase tracking-tight font-semibold text-gray-500 text-sm">Print course report</p>
             </div>
           </div>
           <div class="bg-gray-600 h-[1px] w-full"></div>
           <div class="py-1 flex items-center justify-between">
             <div class="flex space-x-4 items-center">
-              <div class="w-[36px] h-[36px] bg-gray-600 rounded-full"></div>
+              <img src="../assets/Avatar@2x.png" class="w-[36px] h-[36px] rounded-full" />
               <div class="text-xl font-semibold">Discover! Social Studies Live</div>
             </div>
             <div class="flex space-x-4 items-center">
@@ -58,13 +70,36 @@
           <div x-data x-disclosure>
             <button x-disclosure:button
               class="lg:pl-8 sm:pl-6 rounded bg-primary-700 text-white flex py-1 space-x-4 items-center w-full">
-              <div class="w-[24px] h-[24px] bg-gray-600 rounded-full"></div>
+
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="14" viewBox="0 0 20 14">
+                <g id="table" transform="translate(1 1)">
+                  <path id="Vector"
+                    d="M0,4H18M0,8H18M9,4v8M2,12H16a2,2,0,0,0,2-2V2a2,2,0,0,0-2-2H2A2,2,0,0,0,0,2v8a2,2,0,0,0,2,2Z"
+                    fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                </g>
+              </svg>
+
               <div class="text-lg">Grade Summary</div>
-              <div class="w-[24px] h-[24px] bg-gray-600 rounded-full"></div>
+
+              <svg x-show="! $disclosure.isOpen" xmlns="http://www.w3.org/2000/svg" width="7.413" height="13.825"
+                viewBox="0 0 7.413 13.825">
+                <g id="chevron-right" transform="translate(1.413 1.413)">
+                  <path id="Vector" d="M0,0,5,5.5,0,11" fill="none" stroke="#fff" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" />
+                </g>
+              </svg>
+
+              <svg x-show="$disclosure.isOpen" class="rotate-90" xmlns="http://www.w3.org/2000/svg" width="7.413"
+                height="13.825" viewBox="0 0 7.413 13.825">
+                <g id="chevron-right" transform="translate(1.413 1.413)">
+                  <path id="Vector" d="M0,0,5,5.5,0,11" fill="none" stroke="#fff" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" />
+                </g>
+              </svg>
             </button>
 
             <div x-disclosure:panel x-collapse>
-              <div class="w-2/3 mx-auto">
+              <div class="w-3/4 mx-auto mt-4">
                 <table>
                   <thead>
                     <tr>
